@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Softy Pinko</title>
+    <!-- Include jQuery for AJAX -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="offset-xl-3 col-xl-6 offset-lg-2 col-lg-8 col-md-12 col-sm-12">
+    <!-- Dynamic content from back-end -->
+    <h1 id="dynamic-content"></h1>
+
+    <!-- Existing static content -->
+    <h1>We provide the best <strong>strategy</strong><br>to grow up your <strong>business</strong></h1>
+    <a href="#features" class="main-button-slider">Discover More</a>
+</div>
+
+<!-- AJAX script to fetch back-end data -->
+<script>
+    $(function() {
+        $.ajax({
+            type: "GET",
+            url: "http://localhost:5252/api/hello",
+            success: function(data) {
+                console.log(data);
+                $('#dynamic-content').text(data);
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
