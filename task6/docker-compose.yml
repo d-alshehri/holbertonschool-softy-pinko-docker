@@ -1,4 +1,7 @@
+version: '3.8'
+
 services:
+  # Back-end server 1
   back-end-1:
     build:
       context: ./back-end
@@ -7,6 +10,7 @@ services:
     expose:
       - "5252"
 
+  # Back-end server 2
   back-end-2:
     build:
       context: ./back-end
@@ -15,6 +19,7 @@ services:
     expose:
       - "5252"
 
+  # Front-end server
   front-end:
     build:
       context: ./front-end
@@ -23,6 +28,7 @@ services:
     expose:
       - "9000"
 
+  # Proxy server (Nginx)
   proxy:
     build:
       context: ./proxy
